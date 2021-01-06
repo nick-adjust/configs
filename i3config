@@ -155,6 +155,9 @@ bindsym button5 nop
 bindsym wheel_up_cmd nop
 bindsym wheel_down_cmd nop
 
+bindsym $mod+p move workspace to output right
+bindsym $mod+o move workspace to output left
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -189,6 +192,7 @@ bar {
 }
 
 for_window [class="KeePassXC"] floating enable
+for_window [class="Galculator"] floating enable
 for_window [class="KeePassXC"] move scratchpad
 for_window [class="Chromium"] border none
 
@@ -200,4 +204,7 @@ exec --no-startup-id dropbox &
 exec --no-startup-id keepassxc
 exec --no-startup-id i3-battery-popup -L 15 -s ~/.config/i3/battery.wav -N
 exec --no-startup-id xautolock -time 5 -locker ~/.config/i3/lock.sh -corners -notify 15 -notifier 'Xb=$(xbacklight) && xbacklight -steps 10 -set 10  && xbacklight -set $Xb -steps 10' &
+exec --no-startup-id xinput --set-prop 'Logitech G500s Laser Gaming Mouse' 'libinput Accel Speed' 0
+exec --no-startup-id xinput --set-prop 'Logitech G500s Laser Gaming Mouse' 'Coordinate Transformation Matrix' 0.4500000, 0.000000, 0.000000, 0.000000, 0.4500000, 0.000000, 0.000000, 0.000000, 0.0000
+exec --no-startup-id xinput --set-prop 'Logitech G500s Laser Gaming Mouse' 'libinput Accel Profile Enabled' 0, 0
 exec --no-startup-id xkb-switch --i3 &
